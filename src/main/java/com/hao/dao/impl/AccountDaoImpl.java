@@ -5,6 +5,8 @@ import com.hao.domain.Account;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,13 +16,18 @@ import java.util.List;
  * @CreateDate 2019/8/2
  * @Version 1.0
  */
+@Repository("accountDao")
 public class AccountDaoImpl implements AccountDao {
 
+
+    //容器中唯一的bean对象，可以只使用Autowired
+    @Autowired
     private QueryRunner runner;
 
-    public void setQueryRunner(QueryRunner runner) {
-        this.runner = runner;
-    }
+    //使用注解不需要set方法
+//    public void setQueryRunner(QueryRunner runner) {
+//        this.runner = runner;
+//    }
 
     public List<Account> findAllAccount() {
 

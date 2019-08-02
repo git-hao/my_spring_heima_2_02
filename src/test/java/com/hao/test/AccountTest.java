@@ -35,7 +35,10 @@ public class AccountTest {
     public void testFindOne(){
 
         //获取容器
-        ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        //测试注解
+        ApplicationContext ac = new ClassPathXmlApplicationContext("bean2.xml");
+
         //得到对象
         AccountService as = ac.getBean("accountService",AccountService.class);
         //执行方法

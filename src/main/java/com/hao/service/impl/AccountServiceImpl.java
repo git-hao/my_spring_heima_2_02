@@ -3,6 +3,8 @@ package com.hao.service.impl;
 import com.hao.dao.AccountDao;
 import com.hao.domain.Account;
 import com.hao.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,13 +14,15 @@ import java.util.List;
  * @CreateDate 2019/8/2
  * @Version 1.0
  */
+@Service("accountService")
 public class AccountServiceImpl implements AccountService {
 
+    @Autowired
     private AccountDao accountDao;
 
-    public void setAccountDao(AccountDao accountDao) {
-        this.accountDao = accountDao;
-    }
+//    public void setAccountDao(AccountDao accountDao) {
+//        this.accountDao = accountDao;
+//    }
 
     public List<Account> findAllAccount() {
         return accountDao.findAllAccount();
